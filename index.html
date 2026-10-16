@@ -18,12 +18,47 @@ main{max-width:1050px;margin:auto;padding:20px 16px 60px}.section-title{font-siz
 .featuregrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.feature{background:white;border:1px solid var(--line);border-radius:14px;padding:15px}.feature h3{margin:.2rem 0 .45rem;font-size:1rem}.feature p{margin:0;color:var(--muted);font-size:.92rem}
 table{width:100%;border-collapse:collapse;background:white;border-radius:12px;overflow:hidden}td,th{text-align:left;padding:11px;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--mint)}.small{font-size:.86rem;color:var(--muted)}footer{background:#203f38;color:#eaf2ee;padding:25px 16px;font-size:.88rem}footer a{color:white}
 @media(max-width:700px){.quick{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.featuregrid{grid-template-columns:1fr}.dayhead{align-items:flex-start}.daybody{padding:14px}.hero{padding-top:25px}}
+
+/* Version 5: mobile-first quick navigation and practical free-day guides */
+.nav{position:sticky;top:0;z-index:20;background:rgba(250,247,239,.97);backdrop-filter:blur(8px);overflow-x:auto;white-space:nowrap;padding:10px 12px;border-bottom:1px solid #dce5df}
+.nav a{display:inline-block}
+.quick-links{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.quick-links a{display:inline-block;padding:8px 12px;border:1px solid #cbdcd4;border-radius:999px;text-decoration:none;color:#245d50;background:#fff;font-size:.94rem}
+.day .notice strong{color:#76521b}
+.route-plan{border:1px solid #d9e5de;border-radius:14px;padding:14px;margin:14px 0;background:#f8fbf8}
+.route-plan h4{margin-top:0}
+.route-plan ol{padding-left:22px}
+.route-plan li{margin:8px 0}
+.small-note{font-size:.9rem;color:#586761}
+
 </style>
+
+<style id="photo-guide-styles">
+.photo-guide{margin:28px 0;padding:22px;border-radius:20px;background:linear-gradient(135deg,#f4f7f5,#fff8ed);border:1px solid #e5e8df}
+.photo-guide h2{margin-top:0}
+.photo-intro{color:#5c665f;line-height:1.75}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:14px;margin-top:16px}
+.photo-card{background:#fff;border:1px solid #e8e8e2;border-radius:15px;padding:16px;box-shadow:0 3px 12px rgba(30,45,35,.04)}
+.photo-card h3{margin:0 0 8px;font-size:1.05rem}
+.photo-card p,.photo-card li{line-height:1.65;font-size:.94rem}
+.photo-card ul{padding-left:19px;margin:8px 0}
+.photo-tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.photo-tag{font-size:.78rem;background:#edf2ed;border-radius:999px;padding:4px 9px;color:#43594a}
+.photo-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.photo-links a{display:inline-block;padding:8px 11px;border-radius:10px;background:#314b3b;color:#fff!important;text-decoration:none;font-size:.85rem}
+.photo-settings{overflow-x:auto;margin-top:14px}
+.photo-settings table{border-collapse:collapse;width:100%;min-width:560px;background:#fff}
+.photo-settings th,.photo-settings td{border:1px solid #e3e5de;padding:10px;text-align:left;font-size:.9rem}
+.photo-settings th{background:#eef2eb}
+.photo-warning{padding:12px 14px;border-left:4px solid #b77a37;background:#fff3e4;border-radius:8px;line-height:1.7;margin-top:14px}
+.photo-mini{font-size:.85rem;color:#6a716b}
+</style>
+
 </head>
 <body>
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">EVERFUN TRAVEL · PERSONAL TRAVEL GUIDE · VERSION 4</div>
+    <div class="eyebrow">EVERFUN TRAVEL · PERSONAL TRAVEL GUIDE · VERSION 5</div>
     <h1>奧捷童話小鎮・微自助慢旅</h1>
     <p>布拉格・特爾奇・卡羅維瓦利・CK 小鎮・國王湖・薩爾斯堡・哈修塔特・維也納</p>
     <div class="pillrow"><span class="pill">2026/11/07 – 11/18</span><span class="pill">12 日</span><span class="pill">長汎旅遊 EEG26N07BR12TA</span><span class="pill">長榮航空</span></div>
@@ -37,7 +72,7 @@ table{width:100%;border-collapse:collapse;background:white;border-radius:12px;ov
 </section>
 <nav>
   <a href="#overview">旅程總覽</a><a href="#days">每日行程</a><a href="#free">自由活動日</a><a href="#hotels">住宿參考</a><a href="#flight">航班與行李</a><a href="#food">必吃美食地圖</a><a href="#souvenirs">紀念鈔與伴手禮</a><a href="#checklist">行前清單</a>
-</nav>
+<a href="#photo-guide">📷 拍照攻略</a></nav>
 <main>
 <section id="overview">
 <h2 class="section-title">旅程總覽</h2>
@@ -55,23 +90,45 @@ table{width:100%;border-collapse:collapse;background:white;border-radius:12px;ov
 
 <div class="day"><div class="dayhead"><div class="num">D2</div><div><div class="date">11/8（日）</div><h3>維也納 → 特爾奇 → 布拉格</h3></div></div><div class="daybody"><div class="route">Vienna → Telč → Prague</div><div class="tags"><span class="tag">童話小鎮</span><span class="tag">跨城市移動</span></div><div class="notice"><strong>🍴沿途必吃：</strong>特爾奇若有自由選擇，可試捷克烤肉／烤雞搭配馬鈴薯；抵達布拉格後若還有時間，留意捷克開放式三明治 <i>chlebíčky</i>。此日移動較多，以團體供餐為主。</div><div class="cols"><div><h4>今日重點</h4><ul><li>抵達維也納後前往捷克特爾奇，欣賞色彩繽紛的文藝復興廣場與歷史街屋。</li><li>之後前往布拉格，依領隊安排集合與入住。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Telc+Historic+Centre">特爾奇地圖</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Prague">布拉格地圖</a></div></div><div class="box"><h4>餐食／住宿</h4><p class="meta">早餐：機上<br>午餐：特爾奇烤雞風味料理<br>晚餐：中式料理<br>住宿參考：NH Prague City／Hotel Duo 或同級</p></div></div></div></div>
 
-<div class="day"><div class="dayhead"><div class="num">D3</div><div><div class="date">11/9（一）</div><h3>布拉格城堡區、小城區、老城廣場</h3></div></div><div class="daybody"><div class="route">Prague Castle → 小城區 → 老城廣場</div><div class="tags"><span class="tag">城堡區</span><span class="tag">伏爾塔瓦河遊船</span><span class="tag">天文鐘</span></div><div class="notice"><strong>🍴布拉格必吃：</strong>捷克奶油蔬菜醬牛肉配麵包餃 <i>svíčková</i>、烤豬肉＋餃子＋酸菜 <i>vepřo knedlo zelo</i>；甜點可試蜂巢／煙囪捲（Trdelník）但它不算捷克傳統代表，優先選當地糕點更值得。</div><div class="cols"><div><h4>今日重點</h4><ul><li>布拉格城堡區：城堡建築群、聖維特大教堂周邊。</li><li>小城區與藍儂牆。</li><li>老城廣場、泰恩教堂及天文鐘周邊。</li><li>行程包含伏爾塔瓦河遊船自助餐（依旅行社安排）。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Prague+Castle">布拉格城堡地圖</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Old+Town+Square+Prague">老城廣場地圖</a></div></div><div class="box"><h4>餐食／住宿</h4><p class="meta">早餐：飯店<br>午餐：伏爾塔瓦河遊船自助餐<br>晚餐：中式料理<br>住宿參考：NH Prague City／Hotel Duo 或同級</p></div></div></div></div>
+<div class="day"><div class="dayhead"><div class="num">D3</div><div><div class="date">11/9（一）</div><h3>布拉格城堡區、小城區、老城廣場</h3></div></div><div class="daybody"><div class="route">Prague Castle → 小城區 → 老城廣場</div><div class="tags"><span class="tag">城堡區</span><span class="tag">伏爾塔瓦河遊船</span><span class="tag">天文鐘</span></div><div class="notice"><strong>🍴布拉格必吃：</strong>捷克奶油蔬菜醬牛肉配麵包餃 <i>svíčková</i>、烤豬肉＋餃子＋酸菜 <i>vepřo knedlo zelo</i>；甜點可試蜂巢／煙囪捲（Trdelník）但它不算捷克傳統代表，優先選當地糕點更值得。</div><div class="notice"><strong>🛍️順路採買：</strong>布拉格城堡行程可留意 0€ 紀念鈔（現貨與銷售點可能變動）；老城區適合買明信片、木製小物與波希米亞水晶。請優先在有把握的店家購買，別把所有採買都留到最後一天。</div><div class="cols"><div><h4>今日重點</h4><ul><li>布拉格城堡區：城堡建築群、聖維特大教堂周邊。</li><li>小城區與藍儂牆。</li><li>老城廣場、泰恩教堂及天文鐘周邊。</li><li>行程包含伏爾塔瓦河遊船自助餐（依旅行社安排）。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Prague+Castle">布拉格城堡地圖</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Old+Town+Square+Prague">老城廣場地圖</a></div></div><div class="box"><h4>餐食／住宿</h4><p class="meta">早餐：飯店<br>午餐：伏爾塔瓦河遊船自助餐<br>晚餐：中式料理<br>住宿參考：NH Prague City／Hotel Duo 或同級</p></div></div></div></div>
 
-<div class="day" id="free"><div class="dayhead"><div class="num">D4</div><div><div class="date">11/10（二）</div><h3>布拉格自由活動日</h3></div></div><div class="daybody"><div class="route">市區接送後自由活動；當日交通依旅行社安排</div><div class="tags"><span class="tag">購物</span><span class="tag">咖啡館</span><span class="tag">自行安排午晚餐</span></div><div class="notice"><strong>⭐ 今日美食優先日：</strong>自由活動最適合安排一餐正統捷克料理；首選 <i>svíčková</i> 或烤鴨配餃子與紅甘藍，下午配捷克甜點／咖啡。想吃輕食可找開放式三明治 <i>chlebíčky</i>。</div><div class="cols"><div><h4>旅行社提及的方向</h4><ul><li><b>巴黎大道 Pařížská：</b>精品購物與街景散步。</li><li><b>哈維爾市集：</b>尋找在地紀念品。</li><li><b>Café Imperial 帝國咖啡館：</b>可安排午茶或用餐，建議事先確認營業及訂位。</li></ul><h4>建議行程節奏</h4><ul><li>上午：老城區、天文鐘周邊慢慢逛。</li><li>中午：在市中心用餐。</li><li>下午：巴黎大道／市集／咖啡館擇二即可，保留回集合點時間。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Old+Town+Square+Prague">老城廣場</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Parizska+Street+Prague">巴黎大道</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Cafe+Imperial+Prague">帝國咖啡館</a></div></div><div class="box"><h4>自由日提醒</h4><ul><li>先確認巴士接送與集合地點、最晚回程時間。</li><li>把飯店地址存進手機地圖，備妥離線地圖。</li><li>自由日午晚餐自理；可備少量現金與信用卡。</li><li>若要進入熱門咖啡館或博物館，先查營業時間及預約需求。</li></ul><p class="meta">住宿參考：NH Prague City／Hotel Duo 或同級</p></div></div></div></div>
+<div class="day" id="free"><div class="dayhead"><div class="num">D4</div><div><div class="date">11/10（二）</div><h3>布拉格自由活動日</h3></div></div><div class="daybody"><div class="route">自由活動｜建議以老城區步行串連購物、市集與咖啡館；往返飯店交通請依領隊指定集合點</div><div class="tags"><span class="tag">購物</span><span class="tag">咖啡館</span><span class="tag">自行安排午晚餐</span></div><div class="notice"><strong>⭐ 今日美食優先日：</strong>自由活動最適合安排一餐正統捷克料理；首選 <i>svíčková</i> 或烤鴨配餃子與紅甘藍，下午配捷克甜點／咖啡。想吃輕食可找開放式三明治 <i>chlebíčky</i>。</div><div class="cols"><div>
+<div class="route-plan">
+<h4>🧭 布拉格自由日建議路線（不趕行程版）</h4>
+<ol>
+<li><b>上午｜老城廣場 → 天文鐘周邊</b>：先逛老城核心區，適合拍照、看街景。<a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Old+Town+Square+Prague&destination=Prague+Astronomical+Clock&travelmode=walking">步行路線</a></li>
+<li><b>午餐｜捷克傳統料理</b>：優先找有 <i>svíčková</i>（奶油醬牛肉）或烤鴨配餃子的餐廳。<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Czech+traditional+restaurant+near+Old+Town+Square+Prague">附近餐廳地圖</a></li>
+<li><b>下午｜哈維爾市集 → 巴黎大道</b>：市集適合買小型紀念品；巴黎大道以精品店與街景為主。<a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Havelske+Market+Prague&destination=Parizska+Street+Prague&travelmode=walking">步行路線</a></li>
+<li><b>下午茶（擇一）｜咖啡館或甜點</b>：若想體驗經典咖啡館，可考慮 Café Imperial；位置不在老城步行主線上，請衡量時間並先確認訂位。<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Cafe+Imperial+Prague">地圖</a></li>
+</ol>
+<p class="small-note"><b>交通提醒：</b>先向領隊確認飯店接送與集合點。若從 NH Prague City 出發，常見做法是前往 Anděl 一帶搭乘地鐵 B 線到 Můstek，再步行進入老城；實際步行距離、車班與路線請出發當日以地圖／大眾運輸資訊確認。若入住 Hotel Duo，路線會不同，請不要直接套用同一條路線。建議把飯店地址及集合點先存入手機地圖。</p>
+</div>
+<h4>旅行社提及的方向</h4><ul><li><b>巴黎大道 Pařížská：</b>精品購物與街景散步。</li><li><b>哈維爾市集：</b>尋找在地紀念品。</li><li><b>Café Imperial 帝國咖啡館：</b>可安排午茶或用餐，建議事先確認營業及訂位。</li></ul><h4>建議行程節奏</h4><ul><li>上午：老城區、天文鐘周邊慢慢逛。</li><li>中午：在市中心用餐。</li><li>下午：巴黎大道／市集／咖啡館擇二即可，保留回集合點時間。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Old+Town+Square+Prague">老城廣場</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Parizska+Street+Prague">巴黎大道</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Cafe+Imperial+Prague">帝國咖啡館</a></div></div><div class="box"><h4>自由日提醒</h4><ul><li>先確認巴士接送與集合地點、最晚回程時間。</li><li>把飯店地址存進手機地圖，備妥離線地圖。</li><li>自由日午晚餐自理；可備少量現金與信用卡。</li><li>若要進入熱門咖啡館或博物館，先查營業時間及預約需求。</li></ul><p class="meta">住宿參考：NH Prague City／Hotel Duo 或同級</p></div></div></div></div>
 
-<div class="day"><div class="dayhead"><div class="num">D5</div><div><div class="date">11/11（三）</div><h3>布拉格 → 卡羅維瓦利 → 布達優維斯</h3></div></div><div class="daybody"><div class="route">Prague → Karlovy Vary → České Budějovice</div><div class="tags"><span class="tag">溫泉小鎮</span><span class="tag">溫泉迴廊</span></div><div class="notice"><strong>🍴卡羅維瓦利必吃：</strong>當地溫泉薄餅 <i>Karlovarské oplatky</i>（可現吃也適合當伴手禮）；想喝在地特色可認識 Becherovka 草本酒。溫泉水有不同礦物味，不必勉強大量飲用。</div><div class="cols"><div><h4>今日重點</h4><ul><li>漫步卡羅維瓦利溫泉小鎮與溫泉迴廊。</li><li>可留意造型溫泉杯、溫泉薄餅等當地特色。</li><li>之後前往布達優維斯地區住宿。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Karlovy+Vary+Mill+Colonnade">磨坊溫泉迴廊</a></div></div><div class="box"><h4>餐食／住宿</h4><p class="meta">早餐：飯店<br>午餐：捷克烤豬腳風味料理<br>晚餐：自理<br>住宿參考：Clarion Congress Hotel 或同級</p></div></div></div></div>
+<div class="day"><div class="dayhead"><div class="num">D5</div><div><div class="date">11/11（三）</div><h3>布拉格 → 卡羅維瓦利 → 布達優維斯</h3></div></div><div class="daybody"><div class="route">Prague → Karlovy Vary → České Budějovice</div><div class="tags"><span class="tag">溫泉小鎮</span><span class="tag">溫泉迴廊</span></div><div class="notice"><strong>🍴卡羅維瓦利必吃：</strong>當地溫泉薄餅 <i>Karlovarské oplatky</i>（可現吃也適合當伴手禮）；想喝在地特色可認識 Becherovka 草本酒。溫泉水有不同礦物味，不必勉強大量飲用。</div><div class="notice"><strong>🛍️順路採買：</strong>卡羅維瓦利優先買溫泉薄餅（Karlovarské oplatky）；Becherovka 草本酒可作成人伴手禮。液體攜帶與托運規定請依航空公司要求確認。</div><div class="cols"><div><h4>今日重點</h4><ul><li>漫步卡羅維瓦利溫泉小鎮與溫泉迴廊。</li><li>可留意造型溫泉杯、溫泉薄餅等當地特色。</li><li>之後前往布達優維斯地區住宿。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Karlovy+Vary+Mill+Colonnade">磨坊溫泉迴廊</a></div></div><div class="box"><h4>餐食／住宿</h4><p class="meta">早餐：飯店<br>午餐：捷克烤豬腳風味料理<br>晚餐：自理<br>住宿參考：Clarion Congress Hotel 或同級</p></div></div></div></div>
 
 <div class="day"><div class="dayhead"><div class="num">D6</div><div><div class="date">11/12（四）</div><h3>布達優維斯 → 庫倫諾夫 → 林茨</h3></div></div><div class="daybody"><div class="route">České Budějovice → Český Krumlov → Linz</div><div class="tags"><span class="tag">CK 小鎮</span><span class="tag">世界文化遺產</span></div><div class="notice"><strong>🍴南波希米亞／CK 小鎮：</strong>若菜單有，可試南波希米亞淡水魚料理（鯉魚、鱒魚等）、捷克燉牛肉配麵包餃；甜點可選水果餃 <i>ovocné knedlíky</i>。當天午餐為團體安排，是否能點選以餐廳菜單為準。</div><div class="cols"><div><h4>今日重點</h4><ul><li>漫步 CK 小鎮紅瓦屋頂、石板路與伏爾塔瓦河 S 型河灣。</li><li>可逛特色商店，留意木製玩具、波希米亞水晶與文具類紀念品。</li><li>之後前往林茨住宿。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Cesky+Krumlov+Historic+Centre">CK 小鎮地圖</a></div></div><div class="box"><h4>餐食／住宿</h4><p class="meta">早餐：飯店<br>午餐：捷克牛肉風味料理<br>晚餐：自理<br>住宿參考：ARCOTEL Nike／Courtyard by Marriott Linz 或同級</p></div></div></div></div>
 
-<div class="day"><div class="dayhead"><div class="num">D7</div><div><div class="date">11/13（五）</div><h3>國王湖 → 薩爾斯堡市區</h3></div></div><div class="daybody"><div class="route">Linz → Königssee → Salzburg</div><div class="tags"><span class="tag">國王湖</span><span class="tag">米拉貝爾花園</span><span class="tag">莫札特出生地</span></div><div class="notice"><strong>🍴薩爾斯堡必吃：</strong>莫札特巧克力球 <i>Mozartkugel</i>、皇帝煎餅 <i>Kaiserschmarrn</i>；若有機會坐下用餐，可試奶油起司麵疙瘩／起司麵疙瘩類料理。國王湖周邊可留意湖魚，但以當日開店與團體時間為準。</div><div class="cols"><div><h4>今日重點</h4><ul><li>國王湖湖畔停留；遊船為自費活動，冬季班次可能較少或因結冰停駛。</li><li>薩爾斯堡：米拉貝爾花園、蓋特萊德街、老城區、莫札特出生地。</li><li>天氣與日照可能影響湖區停留及拍照安排。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Konigssee">國王湖地圖</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Mirabell+Gardens+Salzburg">米拉貝爾花園</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Getreidegasse+Salzburg">蓋特萊德街</a></div></div><div class="box"><h4>餐食／住宿</h4><p class="meta">早餐：飯店<br>午餐：德國豬排風味料理<br>晚餐：中式料理<br>住宿參考：Holiday Inn Salzburg City／FourSide Hotel Salzburg 或同級</p></div></div></div></div>
+<div class="day"><div class="dayhead"><div class="num">D7</div><div><div class="date">11/13（五）</div><h3>國王湖 → 薩爾斯堡市區</h3></div></div><div class="daybody"><div class="route">Linz → Königssee → Salzburg</div><div class="tags"><span class="tag">國王湖</span><span class="tag">米拉貝爾花園</span><span class="tag">莫札特出生地</span></div><div class="notice"><strong>🍴薩爾斯堡必吃：</strong>莫札特巧克力球 <i>Mozartkugel</i>、皇帝煎餅 <i>Kaiserschmarrn</i>；若有機會坐下用餐，可試奶油起司麵疙瘩／起司麵疙瘩類料理。國王湖周邊可留意湖魚，但以當日開店與團體時間為準。</div><div class="notice"><strong>🛍️順路採買：</strong>薩爾斯堡可買 Mozartkugel 莫札特巧克力球；Manner 威化餅可留到維也納補買。巧克力建議選密封包裝並留意保存溫度。</div><div class="cols"><div><h4>今日重點</h4><ul><li>國王湖湖畔停留；遊船為自費活動，冬季班次可能較少或因結冰停駛。</li><li>薩爾斯堡：米拉貝爾花園、蓋特萊德街、老城區、莫札特出生地。</li><li>天氣與日照可能影響湖區停留及拍照安排。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Konigssee">國王湖地圖</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Mirabell+Gardens+Salzburg">米拉貝爾花園</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Getreidegasse+Salzburg">蓋特萊德街</a></div></div><div class="box"><h4>餐食／住宿</h4><p class="meta">早餐：飯店<br>午餐：德國豬排風味料理<br>晚餐：中式料理<br>住宿參考：Holiday Inn Salzburg City／FourSide Hotel Salzburg 或同級</p></div></div></div></div>
 
 <div class="day"><div class="dayhead"><div class="num">D8</div><div><div class="date">11/14（六）</div><h3>薩爾斯堡 → 哈修塔特 → 美景宮 → 維也納</h3></div></div><div class="daybody"><div class="route">Salzburg → Hallstatt → Belvedere Palace → Vienna</div><div class="tags"><span class="tag">湖畔小鎮</span><span class="tag">美景宮</span><span class="tag">長距離移動</span></div><div class="notice"><strong>🍴哈修塔特必吃：</strong>湖區鱒魚是最貼合地點的選擇（行程原本也安排湖區鱒魚風味午餐）；若在咖啡館看到蘋果捲 <i>Apfelstrudel</i>，可搭配咖啡分享。這天拉車多，不建議再安排遠距離餐廳。</div><div class="cols"><div><h4>今日重點</h4><ul><li>哈修塔特湖畔與小鎮街區散步、拍照。</li><li>前往維也納參觀美景宮周邊；實際入內與停留方式依旅行社安排。</li><li>這天移動點較多，建議前一晚先整理好相機與保暖配件。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hallstatt+Austria">哈修塔特地圖</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Belvedere+Palace+Vienna">美景宮地圖</a></div></div><div class="box"><h4>餐食／住宿</h4><p class="meta">早餐：飯店<br>午餐：湖區鱒魚風味料理<br>晚餐：自理<br>住宿參考：Austria Trend Doppio／Austria Trend Hotel Bosei 或同級</p></div></div></div></div>
 
-<div class="day"><div class="dayhead"><div class="num">D9</div><div><div class="date">11/15（日）</div><h3>維也納市中心：霍夫堡、聖史蒂芬大教堂、水晶店</h3></div></div><div class="daybody"><div class="route">Vienna city tour</div><div class="tags"><span class="tag">皇室歷史</span><span class="tag">市中心散策</span><span class="tag">購物</span></div><div class="notice"><strong>🍴維也納必吃：</strong>維也納炸小牛排 <i>Wiener Schnitzel</i>、煮牛肉 <i>Tafelspitz</i>、薩赫蛋糕 <i>Sachertorte</i> 或蘋果捲 <i>Apfelstrudel</i>。午晚餐自理，可把其中一餐留給正式維也納料理。</div><div class="cols"><div><h4>今日重點</h4><ul><li>霍夫堡宮周邊，認識哈布斯堡王朝歷史。</li><li>聖史蒂芬大教堂與周邊步行街。</li><li>安排奧地利水晶紀念品專賣店。</li><li>旅行社標示午、晚餐自理，請預留用餐時間。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hofburg+Vienna">霍夫堡宮</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=St+Stephen%27s+Cathedral+Vienna">聖史蒂芬大教堂</a></div></div><div class="box"><h4>餐食／住宿</h4><p class="meta">早餐：飯店<br>午餐：自理<br>晚餐：自理<br>住宿參考：Austria Trend Doppio／Austria Trend Hotel Bosei 或同級</p></div></div></div></div>
+<div class="day"><div class="dayhead"><div class="num">D9</div><div><div class="date">11/15（日）</div><h3>維也納市中心：霍夫堡、聖史蒂芬大教堂、水晶店</h3></div></div><div class="daybody"><div class="route">Vienna city tour</div><div class="tags"><span class="tag">皇室歷史</span><span class="tag">市中心散策</span><span class="tag">購物</span></div><div class="notice"><strong>🍴維也納必吃：</strong>維也納炸小牛排 <i>Wiener Schnitzel</i>、煮牛肉 <i>Tafelspitz</i>、薩赫蛋糕 <i>Sachertorte</i> 或蘋果捲 <i>Apfelstrudel</i>。午晚餐自理，可把其中一餐留給正式維也納料理。</div><div class="notice"><strong>🛍️順路採買：</strong>維也納市中心可找 Manner 威化餅、薩赫蛋糕包裝禮盒、雪景球與莫札特巧克力；易碎品請保留原包裝並放入衣物間保護。</div><div class="cols"><div><h4>今日重點</h4><ul><li>霍夫堡宮周邊，認識哈布斯堡王朝歷史。</li><li>聖史蒂芬大教堂與周邊步行街。</li><li>安排奧地利水晶紀念品專賣店。</li><li>旅行社標示午、晚餐自理，請預留用餐時間。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hofburg+Vienna">霍夫堡宮</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=St+Stephen%27s+Cathedral+Vienna">聖史蒂芬大教堂</a></div></div><div class="box"><h4>餐食／住宿</h4><p class="meta">早餐：飯店<br>午餐：自理<br>晚餐：自理<br>住宿參考：Austria Trend Doppio／Austria Trend Hotel Bosei 或同級</p></div></div></div></div>
 
-<div class="day"><div class="dayhead"><div class="num">D10</div><div><div class="date">11/16（一）</div><h3>維也納自由活動日</h3></div></div><div class="daybody"><div class="route">交通自理｜自由安排市中心、博物館或宮殿</div><div class="tags"><span class="tag">自由活動</span><span class="tag">咖啡館</span><span class="tag">可選自費行程</span></div><div class="notice"><strong>⭐ 今日美食優先日：</strong>自由活動最適合安排維也納咖啡館體驗：一份薩赫蛋糕或蘋果捲＋維也納咖啡；正餐選 Wiener Schnitzel、Tafelspitz 或維也納燉牛肉 <i>Saftgulasch</i>。咖啡館熱門時段建議先確認是否需要訂位。</div><div class="cols"><div><h4>可考慮的安排</h4><ul><li><b>格拉本大街：</b>精品櫥窗、步行街。</li><li><b>中央咖啡館：</b>經典維也納咖啡館與甜點。</li><li><b>阿爾貝蒂娜博物館：</b>藝術展覽；先確認當期展覽及開放時間。</li><li><b>美泉宮：</b>旅行社列為推薦自費，22 間房間 €55／人、40 間房間 €65／人，最低成行人數 15 人；價格以旅行社最新通知為準。</li><li><b>美泉宮音樂會：</b>€85 起，約 100 分鐘；往返交通另計。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Graben+Vienna">格拉本大街</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Cafe+Central+Vienna">中央咖啡館</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Schonbrunn+Palace">美泉宮</a></div></div><div class="box"><h4>自由日提醒</h4><ul><li>今日交通自理，出門前確認飯店到市中心的路線。</li><li>奧地利商店週日與國定假日多數不營業；本日為週一，但仍建議先查店家營業時間。</li><li>若參加晚間音樂會，先確認集合點、結束時間及返飯店方式。</li></ul><p class="meta">住宿參考：Austria Trend Doppio／Austria Trend Hotel Bosei 或同級</p></div></div></div></div>
+<div class="day"><div class="dayhead"><div class="num">D10</div><div><div class="date">11/16（一）</div><h3>維也納自由活動日</h3></div></div><div class="daybody"><div class="route">交通自理｜自由安排市中心、博物館或宮殿</div><div class="tags"><span class="tag">自由活動</span><span class="tag">咖啡館</span><span class="tag">可選自費行程</span></div><div class="notice"><strong>⭐ 今日美食優先日：</strong>自由活動最適合安排維也納咖啡館體驗：一份薩赫蛋糕或蘋果捲＋維也納咖啡；正餐選 Wiener Schnitzel、Tafelspitz 或維也納燉牛肉 <i>Saftgulasch</i>。咖啡館熱門時段建議先確認是否需要訂位。</div><div class="cols"><div>
+<div class="route-plan">
+<h4>🧭 維也納自由日建議路線（市中心慢遊）</h4>
+<ol>
+<li><b>上午｜聖史蒂芬大教堂 → 格拉本大街</b>：逛市中心步行區與商店。<a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=St+Stephen%27s+Cathedral+Vienna&destination=Graben+Vienna&travelmode=walking">步行路線</a></li>
+<li><b>午餐｜維也納傳統料理</b>：可選 Wiener Schnitzel（維也納炸小牛排）或 Tafelspitz（水煮牛肉）。<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=traditional+Viennese+restaurant+near+Stephansplatz">餐廳地圖</a></li>
+<li><b>下午｜中央咖啡館／阿爾貝蒂娜（擇一）</b>：咖啡配薩赫蛋糕或蘋果捲；若選博物館，先查展覽與門票。<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Cafe+Central+Vienna">中央咖啡館地圖</a></li>
+<li><b>替代方案｜美泉宮</b>：若更想看宮殿，建議把市中心景點縮減，不要同一天又塞入太多博物館。<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Schonbrunn+Palace+Vienna">美泉宮地圖</a></li>
+</ol>
+<p class="small-note"><b>交通提醒：</b>若住 Austria Trend Hotel Doppio，可先查附近電車／地鐵轉乘到市中心；若住 Austria Trend Hotel Bosei，交通便利度與 Doppio 不同，較建議出門前以飯店確切地址規劃大眾運輸或叫車。飯店僅為旅行社提供的參考／同級選項，最終住宿請以行前資料為準。回程前先確認集合時間與交通緩衝。</p>
+</div>
+<h4>可考慮的安排</h4><ul><li><b>格拉本大街：</b>精品櫥窗、步行街。</li><li><b>中央咖啡館：</b>經典維也納咖啡館與甜點。</li><li><b>阿爾貝蒂娜博物館：</b>藝術展覽；先確認當期展覽及開放時間。</li><li><b>美泉宮：</b>旅行社列為推薦自費，22 間房間 €55／人、40 間房間 €65／人，最低成行人數 15 人；價格以旅行社最新通知為準。</li><li><b>美泉宮音樂會：</b>€85 起，約 100 分鐘；往返交通另計。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Graben+Vienna">格拉本大街</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Cafe+Central+Vienna">中央咖啡館</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Schonbrunn+Palace">美泉宮</a></div></div><div class="box"><h4>自由日提醒</h4><ul><li>今日交通自理，出門前確認飯店到市中心的路線。</li><li>奧地利商店週日與國定假日多數不營業；本日為週一，但仍建議先查店家營業時間。</li><li>若參加晚間音樂會，先確認集合點、結束時間及返飯店方式。</li></ul><p class="meta">住宿參考：Austria Trend Doppio／Austria Trend Hotel Bosei 或同級</p></div></div></div></div>
 
-<div class="day"><div class="dayhead"><div class="num">D11</div><div><div class="date">11/17（二）</div><h3>潘朵芙 Outlet → 維也納機場 → 返台</h3></div></div><div class="daybody"><div class="route">Parndorf Designer Outlet → Vienna Airport</div><div class="tags"><span class="tag">Outlet 購物</span><span class="tag">退稅</span><span class="tag">夜宿機上</span></div><div class="notice"><strong>🍴返程前補貨：</strong>可在市區／機場／Outlet 留意包裝巧克力、Manner 威化餅等方便攜帶的零食；生鮮肉品、乳製品及含肉食品入境規定較嚴，購買前請先確認台灣最新檢疫規定。</div><div class="cols"><div><h4>今日重點</h4><ul><li>行程表安排潘朵芙購物村；請依領隊通知確認購物停留時間與行李規定。</li><li>保留購物收據與退稅文件，離境時依領隊指示辦理。</li><li>旅行社航班資料列返程 BR62：11/17 14:55 維也納起飛，請務必於行前確認 Outlet 安排與實際登機時間是否有調整。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Designer+Outlet+Parndorf">Outlet 地圖</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Vienna+International+Airport">維也納機場</a></div></div><div class="box"><h4>餐食／住宿</h4><p class="meta">早餐：飯店<br>午餐：自理<br>晚餐：機上<br>住宿：夜宿機上</p></div></div></div></div>
+<div class="day"><div class="dayhead"><div class="num">D11</div><div><div class="date">11/17（二）</div><h3>潘朵芙 Outlet → 維也納機場 → 返台</h3></div></div><div class="daybody"><div class="route">Parndorf Designer Outlet → Vienna Airport</div><div class="tags"><span class="tag">Outlet 購物</span><span class="tag">退稅</span><span class="tag">夜宿機上</span></div><div class="notice"><strong>🍴返程前補貨：</strong>可在市區／機場／Outlet 留意包裝巧克力、Manner 威化餅等方便攜帶的零食；生鮮肉品、乳製品及含肉食品入境規定較嚴，購買前請先確認台灣最新檢疫規定。</div><div class="notice"><strong>🛍️最後補貨：</strong>Parndorf Outlet 以服飾、鞋包為主；零食伴手禮可補買密封包裝的威化餅與巧克力。若要辦退稅，請預留時間並保留收據及商品。</div><div class="cols"><div><h4>今日重點</h4><ul><li>行程表安排潘朵芙購物村；請依領隊通知確認購物停留時間與行李規定。</li><li>保留購物收據與退稅文件，離境時依領隊指示辦理。</li><li>旅行社航班資料列返程 BR62：11/17 14:55 維也納起飛，請務必於行前確認 Outlet 安排與實際登機時間是否有調整。</li></ul><div class="buttons"><a class="btn primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Designer+Outlet+Parndorf">Outlet 地圖</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Vienna+International+Airport">維也納機場</a></div></div><div class="box"><h4>餐食／住宿</h4><p class="meta">早餐：飯店<br>午餐：自理<br>晚餐：機上<br>住宿：夜宿機上</p></div></div></div></div>
 
 <div class="day"><div class="dayhead"><div class="num">D12</div><div><div class="date">11/18（三）</div><h3>抵達桃園｜旅程結束</h3></div></div><div class="daybody"><div class="route">返抵台灣</div><div class="tags"><span class="tag">整理退稅文件</span><span class="tag">行李確認</span></div><div class="cols"><div><h4>抵台前提醒</h4><ul><li>檢查護照、手機、相機、行動電源與購物物品。</li><li>依台灣入境規定申報應申報物品。</li><li>返程航班資料列 11/18 13:05 抵達桃園，請以航空公司最終資訊為準。</li></ul></div><div class="box"><h4>航班參考</h4><p class="meta">去程 BR61：桃園 11/7 22:30 → 中停曼谷 → 維也納 11/8 08:10。回程 BR62：維也納 11/17 14:55 → 桃園 11/18 13:05。中停時間與各航段時間以最終航班資料為準。</p></div></div></div></div>
 </section>
@@ -129,6 +186,19 @@ table{width:100%;border-collapse:collapse;background:white;border-radius:12px;ov
 
 <section id="souvenirs">
 <h2 class="section-title">0 歐元紀念鈔與伴手禮地圖</h2>
+
+<div class="route-plan">
+<h3>🧳 出發前存下的「必吃＋必買」清單</h3>
+<ul>
+<li><b>布拉格：</b>svíčková 奶油醬牛肉、烤鴨配餃子；0€ 紀念鈔（先確認庫存）、明信片／水晶。</li>
+<li><b>卡羅維瓦利：</b>溫泉薄餅；Becherovka 草本酒（成人伴手禮）。</li>
+<li><b>薩爾斯堡：</b>Kaiserschmarrn 皇帝煎餅、Mozartkugel 莫札特巧克力球。</li>
+<li><b>哈修塔特：</b>湖區鱒魚；有空再配蘋果捲。</li>
+<li><b>維也納：</b>Wiener Schnitzel、咖啡＋薩赫蛋糕／蘋果捲；Manner 威化餅、雪景球。</li>
+</ul>
+<p class="small-note">採買建議以行程順路為原則；營業時間、商品庫存、價格及實際餐廳供應均可能變動。入境台灣前，請確認最新檢疫規定，避免攜帶禁止入境的肉品或生鮮食品。</p>
+</div>
+
 <div class="notice"><strong>先提醒：</strong>「0 歐元紀念鈔」是收藏紀念品，不是可在商店消費的法定貨幣。通常在景點、博物館商店或旅遊服務中心販售，售價與款式依現場庫存而異；出發前建議先點連結確認。</div>
 <div class="day"><div class="dayhead"><div class="num">€0</div><div><div class="date">布拉格｜11/9–11/10</div><h3>0 歐元紀念鈔：優先找布拉格城堡</h3></div></div>
 <div class="daybody"><div class="cols">
@@ -171,4 +241,89 @@ table{width:100%;border-collapse:collapse;background:white;border-radius:12px;ov
 <div class="notice"><strong>資料來源與使用方式：</strong>本網站內容以你上傳的長汎旅遊 EEG26N07BR12TA 行程 PDF 為主，部分 Google Maps 按鈕是地點搜尋連結，點擊後可用手機開啟導航。實際出團內容以長汎行前書面資料為準。</div>
 </main>
 <footer><div class="wrap"><b>2026 奧捷微自助 12 日｜個人旅遊手冊・第四版</b><br>長汎旅遊 EEG26N07BR12TA · 2026/11/07–11/18<br><span style="opacity:.8">建議將本頁加入手機主畫面，旅途中可快速開啟。</span></div></footer>
+
+<section id="photo-guide" class="photo-guide">
+  <h2>📷 GR III 拍照攻略｜沿途必拍景點</h2>
+  <p class="photo-intro">依照本次 11/7–11/18 奧捷行程整理。11 月日照較短，建議把握<strong>清晨、日落前後的藍調時刻</strong>；遇到陰雨或人潮時，改拍建築細節、倒影與街景，不必為了等光線而趕行程。</p>
+
+  <div class="photo-grid">
+    <article class="photo-card">
+      <h3>🇨🇿 布拉格｜查理大橋</h3>
+      <div class="photo-tags"><span class="photo-tag">D3／D4 自由日</span><span class="photo-tag">清晨優先</span><span class="photo-tag">廣角街景</span></div>
+      <p><strong>拍什麼：</strong>橋塔、雕像、伏爾塔瓦河與城堡天際線。清晨人少時先拍橋面；藍調時刻可把路燈和城堡一起收進畫面。</p>
+      <ul><li>構圖：利用橋面欄杆做引導線，人物可放在畫面三分之一處。</li><li>小技巧：人多時改拍雕像局部、橋塔仰角或河岸倒影。</li></ul>
+      <div class="photo-links"><a href="https://www.google.com/maps/search/?api=1&query=Charles+Bridge+Prague" target="_blank" rel="noopener">Google 地圖</a><a href="https://www.visitczechia.com/en-us/things-to-do/places/landmarks/urban-architecture/c-prague-charles-bridge-and-bridge-towers" target="_blank" rel="noopener">官方景點資訊</a></div>
+    </article>
+    <article class="photo-card">
+      <h3>🏰 布拉格城堡與聖維特大教堂</h3>
+      <div class="photo-tags"><span class="photo-tag">D3</span><span class="photo-tag">建築細節</span></div>
+      <p><strong>拍什麼：</strong>教堂立面、彩繪玻璃、拱門與城堡區石板路。室內光線較暗，優先拍穩、避免過度追求低 ISO。</p>
+      <ul><li>建築外觀：F5.6 左右；室內細節：可開到 F2.8。</li><li>彩繪玻璃可點測亮部，避免窗戶完全過曝。</li></ul>
+      <div class="photo-links"><a href="https://www.google.com/maps/search/?api=1&query=Prague+Castle" target="_blank" rel="noopener">Google 地圖</a></div>
+    </article>
+    <article class="photo-card">
+      <h3>🌈 泰爾奇 Telč 彩色廣場</h3>
+      <div class="photo-tags"><span class="photo-tag">D2</span><span class="photo-tag">色彩與對稱</span></div>
+      <p><strong>拍什麼：</strong>廣場兩側彩色山牆、拱廊與整排立面。站遠一點拍完整街景，再靠近拍窗框、門牌和裝飾。</p>
+      <div class="photo-links"><a href="https://www.google.com/maps/search/?api=1&query=Telc+Historic+Centre" target="_blank" rel="noopener">Google 地圖</a></div>
+    </article>
+    <article class="photo-card">
+      <h3>🏘️ 庫倫洛夫 Český Krumlov</h3>
+      <div class="photo-tags"><span class="photo-tag">D6</span><span class="photo-tag">高處俯拍</span></div>
+      <p><strong>拍什麼：</strong>紅屋頂、蜿蜒河道與城堡塔樓。優先找視野開闊的觀景點，使用 F5.6；若陰天，利用紅屋頂與河道的色彩對比。</p>
+      <div class="photo-links"><a href="https://www.google.com/maps/search/?api=1&query=Cesky+Krumlov+Castle+Viewpoint" target="_blank" rel="noopener">Google 地圖</a></div>
+    </article>
+    <article class="photo-card">
+      <h3>🌊 國王湖 Königssee</h3>
+      <div class="photo-tags"><span class="photo-tag">D7</span><span class="photo-tag">天氣優先</span></div>
+      <p><strong>拍什麼：</strong>湖面、山壁、碼頭與船隻。陰天也能拍出層次；拍水面時可稍微降低曝光，保留天空與雪山細節。</p>
+      <p class="photo-mini">提醒：11 月船班可能受季節、天候或結冰影響，依當天行程與現場公告為準，不要把必須搭船當作拍攝前提。</p>
+      <div class="photo-links"><a href="https://www.google.com/maps/search/?api=1&query=Konigssee+Germany" target="_blank" rel="noopener">Google 地圖</a></div>
+    </article>
+    <article class="photo-card">
+      <h3>🎼 薩爾斯堡｜米拉貝爾花園與糧食胡同</h3>
+      <div class="photo-tags"><span class="photo-tag">D7</span><span class="photo-tag">街景與細節</span></div>
+      <p><strong>拍什麼：</strong>花園幾何線條、遠方城堡、招牌與巷弄。若花園景色偏冬季，改拍雕像、鐵門、街道招牌與建築質感。</p>
+      <div class="photo-links"><a href="https://www.google.com/maps/search/?api=1&query=Mirabell+Gardens+Salzburg" target="_blank" rel="noopener">米拉貝爾花園</a><a href="https://www.google.com/maps/search/?api=1&query=Getreidegasse+Salzburg" target="_blank" rel="noopener">糧食胡同</a></div>
+    </article>
+    <article class="photo-card">
+      <h3>🏞️ 哈修塔特 Hallstatt 經典湖景</h3>
+      <div class="photo-tags"><span class="photo-tag">D8</span><span class="photo-tag">先拍經典角度</span></div>
+      <p><strong>拍什麼：</strong>湖畔木屋、教堂尖塔與山景。抵達後先拍經典湖景，再沿湖邊拍倒影、船隻和木屋細節；陰天可把畫面重點放在湖面與房屋色彩。</p>
+      <div class="photo-links"><a href="https://www.google.com/maps/search/?api=1&query=Hallstatt+Photo+Point+Gosaumuhlstrasse" target="_blank" rel="noopener">經典拍照點地圖</a><a href="https://www.hallstatt.net/about-hallstatt/sehenswertes-en-US/hallstatt-photo-point/" target="_blank" rel="noopener">官方拍照點資訊</a></div>
+    </article>
+    <article class="photo-card">
+      <h3>🏛️ 維也納｜美景宮 Belvedere</h3>
+      <div class="photo-tags"><span class="photo-tag">D8</span><span class="photo-tag">對稱構圖</span></div>
+      <p><strong>拍什麼：</strong>宮殿正面、花園軸線與水池倒影。以 F5.6 拍建築，畫面左右保持平衡；若水池沒有倒影，就用花園步道引導視線。</p>
+      <div class="photo-links"><a href="https://www.google.com/maps/search/?api=1&query=Belvedere+Palace+Vienna" target="_blank" rel="noopener">Google 地圖</a><a href="https://www.belvedere.at/en/visit" target="_blank" rel="noopener">官方參觀資訊</a></div>
+    </article>
+    <article class="photo-card">
+      <h3>🌆 維也納｜Albertina 露台與歌劇院</h3>
+      <div class="photo-tags"><span class="photo-tag">D9／D10 自由日</span><span class="photo-tag">黃昏至藍調</span></div>
+      <p><strong>拍什麼：</strong>露台視角、歌劇院與街道車流。藍調時刻天空仍有層次、街燈已亮，是很適合城市夜景的時間。</p>
+      <div class="photo-links"><a href="https://www.google.com/maps/search/?api=1&query=Albertina+Terrace+Vienna" target="_blank" rel="noopener">Google 地圖</a><a href="https://www.wien.info/en/see-do/discover-vienna/instagrammable-vienna-907070" target="_blank" rel="noopener">維也納官方拍照靈感</a></div>
+    </article>
+  </div>
+
+  <h3>⚙️ GR III 快速設定｜建議存成 U1／U2／U3</h3>
+  <p class="photo-intro">以下是出發前可先測試的起始值，現場依光線微調；若你平常有固定習慣，以熟悉、拍得穩為優先。</p>
+  <div class="photo-settings">
+    <table>
+      <thead><tr><th>模式</th><th>適用場景</th><th>建議起始設定</th><th>注意事項</th></tr></thead>
+      <tbody>
+        <tr><td><strong>U1 街拍</strong></td><td>布拉格街道、廣場、旅行人物</td><td>Av；F4；Auto ISO 100–3200；最低快門 1/250s；AF-S；多區測光；曝光補償 -0.3 EV</td><td>人走動時快門優先；逆光人像可適度提高曝光補償。</td></tr>
+        <tr><td><strong>U2 建築／風景</strong></td><td>城堡、湖景、宮殿、紅屋頂</td><td>Av；F5.6；Auto ISO 100–1600；最低快門 1/125s；AF-S；多區測光；曝光補償 -0.3 EV</td><td>注意水平線；建築垂直線盡量保持端正。</td></tr>
+        <tr><td><strong>U3 室內／夜景</strong></td><td>咖啡館、教堂內部、藍調時刻</td><td>Av；F2.8；Auto ISO 100–3200；最低快門 1/125s；AF-S；曝光補償 -0.3 EV</td><td>夜景人像不要把快門壓太慢；必要時提高 ISO，避免手震或人物模糊。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="photo-card" style="margin-top:14px">
+    <h3>🎞️ Positive Film 風格起始值</h3>
+    <p>若想要帶有旅行感的直出 JPEG，可先試：飽和度 +1、色相 0、高／低調 0、對比 +1、高光對比 -1、陰影對比 -1、銳利度 +1、清晰度 0。建議使用 <strong>RAW+JPEG</strong>，回家仍可調整 RAW。</p>
+  </div>
+  <div class="photo-warning"><strong>⚠️ 出發前請先確認 GR III 的過熱警示問題。</strong>曾出現機身不熱卻跳出過熱警示、甚至自動關機的情況，建議先用原廠電池、另一張記憶卡、關閉 Wi‑Fi／藍牙做冷機測試；若冷機仍出現警示，出國前請交由維修中心檢查。旅行中由寒冷室外進入暖室內時，先把相機放在包內慢慢回溫，減少結露風險。</div>
+  <p class="photo-mini">小提醒：以上是拍攝建議，不保證特定日期的天氣、開放時間或交通安排；自由日及景點停留時間仍以旅行社實際行程、現場公告為準。</p>
+</section>
+
 </body></html>
