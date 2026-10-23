@@ -32,7 +32,7 @@ table{width:100%;border-collapse:collapse;background:white;border-radius:12px;ov
 .small-note{font-size:.9rem;color:#586761}
 
 
-/* Version 13: sticky quick navigation + direct day picker */
+/* Version 14: sticky quick navigation + direct day picker */
 nav{isolation:isolate;box-shadow:0 2px 8px rgba(20,45,35,.06);align-items:center;flex-wrap:nowrap;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
 .day-jump-label{font-size:.82rem;color:var(--muted);white-space:nowrap;flex-shrink:0}
@@ -41,7 +41,7 @@ nav::-webkit-scrollbar{display:none}
 section[id],h2[id]{scroll-margin-top:100px}
 @media(max-width:600px){nav{top:0;padding:8px 10px;gap:6px}#day-jump{min-width:120px;max-width:145px;font-size:.82rem}.day-jump-label{font-size:.78rem}nav a{padding:7px 10px}}
 
-/* Version 13: reliable fixed quick nav + flight section before overview */
+/* Version 14: reliable fixed quick nav + flight section before overview */
 #site-nav{position:sticky;top:0;z-index:9999;isolation:isolate;box-shadow:0 2px 8px rgba(20,45,35,.08);align-items:center;flex-wrap:nowrap;scrollbar-width:none;max-width:100%;-webkit-overflow-scrolling:touch}
 #site-nav::-webkit-scrollbar{display:none}
 #site-nav.is-fixed{position:fixed;top:0;left:0;right:0;width:100%}
@@ -439,12 +439,43 @@ section[id],div[id^="day"]{scroll-margin-top:110px}
     const target=document.getElementById(this.value);
     if(target){
       const navHeight=nav.getBoundingClientRect().height || nav.offsetHeight || 0;
-      const extraGap=14;
-      const top=target.getBoundingClientRect().top+window.pageYOffset-navHeight-extraGap;
+      const top=target.getBoundingClientRect().top+window.pageYOffset-navHeight-14;
       window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
     }
   });
   updateNav();
+})();
+</script>
+
+
+<script>
+(function(){
+  const nav=document.getElementById('site-nav');
+  if(!nav) return;
+  function scrollToAnchor(target){
+    if(!target) return;
+    const navH = nav.getBoundingClientRect().height || nav.offsetHeight || 0;
+    const top = target.getBoundingClientRect().top + window.pageYOffset - navH - 14;
+    window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
+  }
+  // Handle all same-page links consistently, including daily itinerary and food-map shortcuts.
+  document.addEventListener('click',function(e){
+    const link=e.target.closest('a[href^="#"]');
+    if(!link) return;
+    const id=decodeURIComponent(link.getAttribute('href').slice(1));
+    const target=document.getElementById(id);
+    if(!target) return;
+    e.preventDefault();
+    history.replaceState(null,'','#'+encodeURIComponent(id));
+    scrollToAnchor(target);
+  });
+  // Recompute positions after the page has finished laying out, useful on mobile.
+  window.addEventListener('load',function(){
+    if(location.hash){
+      const id=decodeURIComponent(location.hash.slice(1));
+      setTimeout(function(){scrollToAnchor(document.getElementById(id));},150);
+    }
+  });
 })();
 </script>
 
